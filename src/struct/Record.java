@@ -6,12 +6,12 @@ import java.io.ObjectOutputStream;
 import java.io.FileOutputStream;
 import java.io.File;
 
-public class Record {
+public abstract class Record {
 
-	public void createPath(String path) {
+	public boolean createPath(String path) {
 		File file = new File(path);
-		file.mkdir();
-	}
+		return file.mkdir();
+	} 
 	
 	public boolean existPath(String path) {
 		return (new File(path).isDirectory());
