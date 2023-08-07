@@ -7,8 +7,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.LinkedHashMap;
 
-public class Struct extends Record {
-
+public abstract class Struct extends Record {
+ 
 	public final String DELIMITER = "/";
 	public final String PATH = "struct";
 	private final String ROOT = String.valueOf(Paths.get("").toAbsolutePath());
@@ -31,8 +31,6 @@ public class Struct extends Record {
 			this.createPath(path_struct);
 		}
 		//finish
-		
-		//super.createPath(path_struct + this.DELIMITER + this.VAR);
 		super.createPath(this.getPathVar()); 
 	}
 	
