@@ -10,10 +10,10 @@ public class DiskMap<K, V> extends Struct {
 	}
 
 	public void put(K key, V value) {
-		super.save(value, getNameOfFile(key.hashCode()));
+		super.save(value, getNameOfFile(key));
 	}
 
 	public V get(K key) {
-		return (V) super.read(getNameOfFile(key.hashCode()));
+		return (V) super.read(getNameOfFile(key));
 	}
-}
+} 
