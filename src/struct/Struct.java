@@ -11,14 +11,35 @@ public abstract class Struct extends Record {
 
 	public final String DELIMITER = "/";
 	public final String PATH = "struct";
-	private final String ROOT = String.valueOf(Paths.get("").toAbsolutePath());
-	private final String PACK, VAR;
-	private final String TYPE_STRUCT;
+	private String ROOT = String.valueOf(Paths.get("").toAbsolutePath());
+	private String PACK, VAR;
+	private String TYPE_STRUCT;
 
 	protected Struct(String TYPE_STRUCT, String PACK, String VAR) {
 		this.PACK = getPack(PACK);
 		this.TYPE_STRUCT = TYPE_STRUCT;
 		this.VAR = VAR;
+		super.createPath(this.getPathStruct());
+		super.createPath(this.getPathTypeStruct());
+
+		// for package
+		String path_struct = this.getPathTypeStruct();
+		String[] r = this.PACK.split(this.DELIMITER);
+
+		for (int i = 0; i < r.length; i++) {
+			path_struct += this.DELIMITER + r[i];
+			this.createPath(path_struct);
+		}
+		// finish
+		super.createPath(this.getPathVar());
+	}
+
+	protected Struct(String ROOT, String TYPE_STRUCT, String PACK, String VAR) {
+		this.ROOT = ROOT;
+		this.TYPE_STRUCT = TYPE_STRUCT;
+		this.PACK = PACK;
+		this.VAR = VAR;
+
 		super.createPath(this.getPathStruct());
 		super.createPath(this.getPathTypeStruct());
 

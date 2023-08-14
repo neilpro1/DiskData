@@ -13,6 +13,11 @@ public class DiskList<T> extends Struct {
 		super("disklist", String.valueOf(pack), var);
 		this.counter = super.size();
 	}
+	
+	public DiskList(String root, Class pack, String var) {
+		super(root, "disklist", String.valueOf(pack), var);
+		this.counter = super.size();
+	}
 
 	public void add(T value) {
 		super.save(value, super.getPathVar() + this.DELIMITER + this.counter);

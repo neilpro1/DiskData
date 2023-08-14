@@ -8,6 +8,10 @@ public class DiskMap<K, V> extends Struct {
 	public DiskMap(Class pack, String var) {
 		super("diskmap", String.valueOf(pack), var);
 	}
+	
+	public DiskMap(String root, Class pack, String var) {
+		super(root, "diskmap", String.valueOf(pack), var);
+	}
 
 	public void put(K key, V value) {
 		super.save(value, getNameOfFile(key));
