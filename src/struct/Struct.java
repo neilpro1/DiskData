@@ -37,7 +37,7 @@ public abstract class Struct extends Record {
 	protected Struct(String ROOT, String TYPE_STRUCT, String PACK, String VAR) {
 		this.ROOT = ROOT;
 		this.TYPE_STRUCT = TYPE_STRUCT;
-		this.PACK = PACK;
+		this.PACK = getPack(PACK);
 		this.VAR = VAR;
 
 		super.createPath(this.getPathStruct());
