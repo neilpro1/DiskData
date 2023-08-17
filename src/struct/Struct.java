@@ -57,8 +57,11 @@ public abstract class Struct extends Record {
 
 	public boolean delete() {
 		File[] files = new File(this.getPathVar()).listFiles();
-		for (File file : files)
+		
+		for (File file : files) {
 			file.delete();
+			System.out.println(file.getName());
+		}
 		return super.delete(this.getPathVar());
 	}
 
