@@ -1,5 +1,6 @@
 package struct;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
@@ -11,7 +12,7 @@ public class DiskList<T> extends Struct {
 
 	public DiskList(Class pack, String var) {
 		super("disklist", String.valueOf(pack), var);
-		this.counter = super.size();
+		this.counter = super.size();	
 	}
 	
 	public DiskList(String root, Class pack, String var) {
